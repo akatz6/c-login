@@ -1,0 +1,31 @@
+@model login.Models.RegisterViewModel
+<h1>Please Register</h1>
+<div id="Register">
+    <form asp-controller="Home" asp-action="Register" method="post">
+        <span asp-validation-for="First_Name"></span>
+        <label asp-for="First_Name"></label>
+        <input asp-for="First_Name"/>
+        <span asp-validation-for="Last_Name"></span>
+        <label asp-for="Last_Name"></label>
+        <input asp-for="Last_Name"/>
+        <span asp-validation-for="Email"></span>
+        <label asp-for="Email"></label>
+        <input asp-for="Email"/>
+        <span asp-validation-for="Password"></span>
+        <label asp-for="Password"></label>
+        <input asp-for="Password"/>
+        <span asp-validation-for="PasswordConfirmation"></span>
+        <label asp-for="PasswordConfirmation"></label>
+        <input asp-for="PasswordConfirmation"/>
+        <button type="submit">Create new User</button>
+    </form>
+      <form asp-controller="Home" asp-action="Login" method="post">
+        <span asp-validation-for="Email"></span>
+        <label asp-for="Email"></label>
+        <input asp-for="Email"/>
+        <span asp-validation-for="Password"></span>
+        <label asp-for="Password"></label>
+        <input asp-for="Password"/>
+        <button type="submit">Log In</button>
+    </form>
+</div>
