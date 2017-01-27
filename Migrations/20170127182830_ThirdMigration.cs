@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace login.Migrations
+namespace clogin.Migrations
 {
-    public partial class login : Migration
+    public partial class ThirdMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -19,7 +19,8 @@ namespace login.Migrations
                     First_Name = table.Column<string>(nullable: true),
                     Last_Name = table.Column<string>(nullable: true),
                     Password = table.Column<string>(nullable: true),
-                    Updated_At = table.Column<DateTime>(nullable: false)
+                    Updated_At = table.Column<DateTime>(nullable: false),
+                    Wallet = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

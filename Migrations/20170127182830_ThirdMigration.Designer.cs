@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using login.Models;
 
-namespace login.Migrations
+namespace clogin.Migrations
 {
-    [DbContext(typeof(YourContext))]
-    [Migration("20170116213910_login")]
-    partial class login
+    [DbContext(typeof(BidsDBContext))]
+    [Migration("20170127182830_ThirdMigration")]
+    partial class ThirdMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,6 +32,8 @@ namespace login.Migrations
                     b.Property<string>("Password");
 
                     b.Property<DateTime>("Updated_At");
+
+                    b.Property<int>("Wallet");
 
                     b.HasKey("Id");
 

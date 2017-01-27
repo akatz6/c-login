@@ -2,10 +2,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace login.Models
 {
-    public class YourContext : DbContext
+    public class BidsDBContext : DbContext
     {
             //other code
-        public YourContext(DbContextOptions<YourContext> options) : base(options)
+        public BidsDBContext(DbContextOptions<BidsDBContext> options) : base(options)
         { }
         public DbSet<User> User { get; set; }
   

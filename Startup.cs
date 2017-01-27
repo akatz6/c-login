@@ -28,7 +28,7 @@ namespace login
             // Add framework services.
             services.AddMvc();
             services.AddSession();
-            services.AddDbContext<YourContext>(options => options.UseNpgsql(Configuration["DBInfo:ConnectionString"]));
+            services.AddDbContext<BidsDBContext>(options => options.UseNpgsql(Configuration["DBInfo:ConnectionString"]));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
