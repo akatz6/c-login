@@ -3,11 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using login.Models;
+using idea.Models;
 
 namespace clogin.Migrations
 {
-    [DbContext(typeof(BidsDBContext))]
+    [DbContext(typeof(IdeasDBContext))]
     [Migration("20170127182830_ThirdMigration")]
     partial class ThirdMigration
     {

@@ -1,5 +1,5 @@
 using System;
-namespace login.Models
+namespace idea.Models
 {
     public class User : BaseEntity
     {

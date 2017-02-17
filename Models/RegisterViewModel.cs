@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-namespace login.Models
+namespace idea.Models
 {
     public abstract class BaseEntity {}
     public class RegisterViewModel : BaseEntity

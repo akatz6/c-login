@@ -1,20 +1,20 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using login.Models;
+using idea.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using System.Linq;
 using Microsoft.AspNetCore.Http;
 
-namespace login.Controllers
+namespace idea.Controllers
 {
     public class LoginController : Controller
     {
 
-        private BidsDBContext _context;
+        private IdeasDBContext _context;
 
-        public LoginController(BidsDBContext context)
+        public LoginController(IdeasDBContext context)
         {
             _context = context;
         }
@@ -27,6 +27,7 @@ namespace login.Controllers
             {
                 ViewBag.Error = "Username or Password do not match"; 
             }
+            HttpContext.Session.Clear();
             return View();
         }
 
@@ -48,8 +49,7 @@ namespace login.Controllers
                 _context.User.Add(user);
                 _context.SaveChanges();
                 HttpContext.Session.SetInt32("Id", user.Id);
-                ViewBag.User = user;
-                return View("Home");
+                return RedirectToAction("CurrentSession", "Home");
             }
             return View("LoginPage", model);
         }
@@ -57,14 +57,13 @@ namespace login.Controllers
         [Route("login")]
         public IActionResult Login(RegisterViewModel model)
         { 
-            Models.User user = _context.User.FirstOrDefault(x => x.Email == model.Email);
+            User user = _context.User.FirstOrDefault(x => x.Email == model.Email);
             var Hasher = new PasswordHasher<RegisterViewModel>();
             
             if(user != null && model.Password != null && 0 != Hasher.VerifyHashedPassword(model, user.Password, model.Password))
             {
-                ViewBag.User = user;
                 HttpContext.Session.SetInt32("Id", user.Id);
-                return View("Home");   
+                return RedirectToAction("CurrentSession", "Home");  
             }
 
             TempData["LoginError"] = true;

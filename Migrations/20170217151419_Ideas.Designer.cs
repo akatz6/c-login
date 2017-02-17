@@ -8,9 +8,10 @@ using idea.Models;
 namespace clogin.Migrations
 {
     [DbContext(typeof(IdeasDBContext))]
-    partial class BidsDBContextModelSnapshot : ModelSnapshot
+    [Migration("20170217151419_Ideas")]
+    partial class Ideas
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rtm-21431");
