@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-namespace idea.Models
+namespace craigslist.Models
 {
     public abstract class BaseEntity {}
     public class RegisterViewModel : BaseEntity
@@ -15,7 +15,7 @@ namespace idea.Models
         public string Last_Name {get; set;}
 
         [EmailAddress]
-        [MinLength(5)]
+        [Required(ErrorMessage ="Please enter your email")]
         public string Email {get; set;}
 
         [Required(ErrorMessage ="Please enter your password")]

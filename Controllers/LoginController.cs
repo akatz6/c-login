@@ -1,20 +1,20 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using idea.Models;
+using craigslist.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using System.Linq;
 using Microsoft.AspNetCore.Http;
 
-namespace idea.Controllers
+namespace craigslist.Controllers
 {
     public class LoginController : Controller
     {
 
-        private IdeasDBContext _context;
+        private CraigsListDBContext _context;
 
-        public LoginController(IdeasDBContext context)
+        public LoginController(CraigsListDBContext context)
         {
             _context = context;
         }
@@ -45,7 +45,6 @@ namespace idea.Controllers
                 user.Password = Hasher.HashPassword(user, model.Password);
                 user.Created_At = DateTime.Now;
                 user.Updated_At = DateTime.Now;
-                user.Wallet = 1000;
                 _context.User.Add(user);
                 _context.SaveChanges();
                 HttpContext.Session.SetInt32("Id", user.Id);

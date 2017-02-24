@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace clogin.Migrations
+namespace craigslist.Migrations
 {
-    public partial class ThirdMigration : Migration
+    public partial class FirstMigration1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -19,8 +19,7 @@ namespace clogin.Migrations
                     First_Name = table.Column<string>(nullable: true),
                     Last_Name = table.Column<string>(nullable: true),
                     Password = table.Column<string>(nullable: true),
-                    Updated_At = table.Column<DateTime>(nullable: false),
-                    Wallet = table.Column<int>(nullable: false)
+                    Updated_At = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {

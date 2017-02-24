@@ -3,19 +3,20 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using idea.Models;
+using craigslist.Models;
 
-namespace clogin.Migrations
+namespace craigslist.Migrations
 {
-    [DbContext(typeof(IdeasDBContext))]
-    partial class BidsDBContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(CraigsListDBContext))]
+    [Migration("20170224172122_FirstMigration1")]
+    partial class FirstMigration1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rtm-21431");
 
-            modelBuilder.Entity("idea.Models.User", b =>
+            modelBuilder.Entity("craigslist.Models.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -31,8 +32,6 @@ namespace clogin.Migrations
                     b.Property<string>("Password");
 
                     b.Property<DateTime>("Updated_At");
-
-                    b.Property<int>("Wallet");
 
                     b.HasKey("Id");
 

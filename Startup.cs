@@ -4,10 +4,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Hosting;
-using idea.Models;
+using craigslist.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace idea
+namespace craigslist
 {
     public class Startup
     {
@@ -28,7 +28,7 @@ namespace idea
             // Add framework services.
             services.AddMvc();
             services.AddSession();
-            services.AddDbContext<IdeasDBContext>(options => options.UseNpgsql(Configuration["DBInfo:ConnectionString"]));
+            services.AddDbContext<CraigsListDBContext>(options => options.UseNpgsql(Configuration["DBInfo:ConnectionString"]));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

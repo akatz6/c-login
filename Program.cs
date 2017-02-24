@@ -1,7 +1,7 @@
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
 
-namespace idea
+namespace craigslist
 {
     public class Program
     {

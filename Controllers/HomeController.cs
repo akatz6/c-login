@@ -1,20 +1,20 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using idea.Models;
+using craigslist.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using System.Linq;
 using Microsoft.AspNetCore.Http;
 
-namespace idea.Controllers
+namespace craigslist.Controllers
 {
     public class HomeController : Controller
     {
 
-        private IdeasDBContext _context;
+        private CraigsListDBContext _context;
 
-        public HomeController(IdeasDBContext context)
+        public HomeController(CraigsListDBContext context)
         {
             _context = context;
         }

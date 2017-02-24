@@ -21,10 +21,8 @@
         <button type="submit">Create new User</button>
     </form>
       <form asp-controller="Login" asp-action="Login" method="post">
-        <span asp-validation-for="Email"></span>
         <label asp-for="Email"></label>
         <input asp-for="Email"/>
-        <span asp-validation-for="Password"></span>
         <label asp-for="Password"></label>
         <input asp-for="Password"/>
         <button type="submit">Log In</button>
