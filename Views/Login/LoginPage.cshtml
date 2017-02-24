@@ -12,6 +12,7 @@
         <span asp-validation-for="Email"></span>
         <label asp-for="Email"></label>
         <input asp-for="Email"/>
+        <p>@TempData["EmailInUse"]</p>
         <span asp-validation-for="Password"></span>
         <label asp-for="Password"></label>
         <input asp-for="Password"/>

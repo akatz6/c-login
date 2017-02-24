@@ -35,6 +35,12 @@ namespace craigslist.Controllers
         [Route("register")]
         public IActionResult Register(RegisterViewModel model)
         {
+            var emailIsNew = _context.User.FirstOrDefault(user => user.Email == model.Email);
+            if(emailIsNew != null)
+            {
+                TempData["EmailInUse"] = "That email has already been used";
+                return View("LoginPage");
+            }
             if(ModelState.IsValid)
             {
                 PasswordHasher<User> Hasher = new PasswordHasher<User>();
