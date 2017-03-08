@@ -8,9 +8,10 @@ using craigslist.Models;
 namespace craigslist.Migrations
 {
     [DbContext(typeof(CraigsListDBContext))]
-    partial class CraigsListDBContextModelSnapshot : ModelSnapshot
+    [Migration("20170306172330_jobTalk2")]
+    partial class jobTalk2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rtm-21431");

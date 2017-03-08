@@ -1,0 +1,50 @@
+@Html.Partial("TopBanner")
+
+<h1>Autos and Parts</h1>
+
+
+<h1>Please Enter an Auto or Part</h1>
+@model craigslist.Models.Auto
+<form asp-controller="Auto" asp-action="AddAuto" method="post" role="form">
+    <span asp-validation-for="Make"></span>
+    <label asp-for="Make"></label>
+    <input asp-for="Make"/>
+    <span asp-validation-for="Model"></span>
+    <label asp-for="Model"></label>
+    <input asp-for="Model"/>
+    <label asp-for="Part"></label>
+    <input asp-for="Part"/>
+    <label asp-for="Price"></label>
+    <input asp-for="Price"/>
+    <button type="submit">Add Conversation about Auto or Part</button>
+</form>
+
+@{
+     <table>
+            <tr>
+                <th>Make</th>
+                <th>Model</th>
+                <th>Part</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+    @foreach(var car in ViewBag.Cars)
+    {
+       
+            <tr>
+                <td><a asp-controller="Auto" asp-action="ConversationAuto" asp-route-id="@car.Id">@car.Make</a></td>
+                <td>@car.Model</td>
+                <td>@car.Part</td>
+                <td>@car.Price</td>
+                @if(car.UserId == ViewBag.User)
+                {
+                    <td><a asp-controller="Auto" asp-action="RemoveAuto" asp-route-id="@car.Id">Delete</a></td>
+                }else{
+                    <td>No action</td>
+                }
+
+            </tr>
+        
+    }
+    </table>
+}

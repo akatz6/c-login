@@ -1,0 +1,32 @@
+<h1>Conversation about the @ViewBag.Job.Title for @ViewBag.Job.Salary a year</h1>
+@Html.Partial("TopBanner")
+
+@model craigslist.Models.JobTalk
+<form asp-controller="Job" asp-action="AddJobTalk" method="post" role="form">
+    <span asp-validation-for="Comment"></span>
+    <label asp-for="Comment"></label>
+    <input asp-for="Comment"/>
+    <button type="submit">Add Comment about the job</button>
+</form>
+
+
+
+<table>
+    <tr>
+        <th>Comment</th>
+        <th>Action</th>
+    </tr>
+@foreach(var talk in ViewBag.JobTalk)
+{
+    <tr>
+        <td>@talk.Comment</td>
+        @if(talk.UserId == ViewBag.userId)
+        {
+            <td><a asp-controller="Job" asp-action="RemoveJobTalk" asp-route-id="@talk.Id">Delete</a></td>
+        }else{
+            <td>No Action</td>
+        }
+    </tr>
+}
+
+</table>

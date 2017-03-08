@@ -1,5 +1,5 @@
 <p>Hello @ViewBag.User.First_Name</p>
+<a asp-controller="Login" asp-action="LoginPage" method="get">Logout</a> 
 <p>Please choose an option</p>
-<p><a href="">Auto and Parts</a></p>
-<p><a href="">Electronics</a></p>
-<p><a href="">Jobs</a></p>
+<p><a asp-controller="Auto" asp-action="AutoInfo">Auto and Parts</a></p>
+<p><a asp-controller="Job" asp-action="JobInfo">Jobs</a></p>

@@ -1,0 +1,36 @@
+@Html.Partial("TopBanner")
+
+<h1>Jobs</h1>
+
+<h1>Please Enter an Job Info</h1>
+@model craigslist.Models.Job
+<form asp-controller="Job" asp-action="AddJob" method="post" role="form">
+    <span asp-validation-for="Title"></span>
+    <label asp-for="Title"></label>
+    <input asp-for="Title"/>
+    <span asp-validation-for="Salary"></span>
+    <label asp-for="Salary"></label>
+    <input asp-for="Salary"/>
+    <button type="submit">Add Conversation about Auto or Part</button>
+</form>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Salary</th>
+        <th>Action</th>
+    </tr>
+    @foreach(var job in ViewBag.Jobs)
+    {
+        <tr>
+            <td><a asp-controller="Job" asp-action="ConversationJob" asp-route-id="@job.Id">@job.Title</a></td>
+            <td>$@job.Salary</td>
+        @if(ViewBag.User == @job.UserId)
+        {
+            <td><a asp-controller="Job" asp-action="RemoveJob" asp-route-id="@job.Id">Delete</a></td>
+        }else{
+            <td>No Action</td>
+        }
+         </tr>
+    }
+</table>

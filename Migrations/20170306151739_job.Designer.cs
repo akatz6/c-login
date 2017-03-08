@@ -8,9 +8,10 @@ using craigslist.Models;
 namespace craigslist.Migrations
 {
     [DbContext(typeof(CraigsListDBContext))]
-    partial class CraigsListDBContextModelSnapshot : ModelSnapshot
+    [Migration("20170306151739_job")]
+    partial class job
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rtm-21431");
@@ -68,52 +69,6 @@ namespace craigslist.Migrations
                     b.ToTable("AutoTalk");
                 });
 
-            modelBuilder.Entity("craigslist.Models.Job", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("CreatedAt");
-
-                    b.Property<int>("Salary");
-
-                    b.Property<string>("Title")
-                        .IsRequired();
-
-                    b.Property<DateTime>("UpdatedAt");
-
-                    b.Property<int>("UserId");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Job");
-                });
-
-            modelBuilder.Entity("craigslist.Models.JobTalk", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Comment")
-                        .IsRequired();
-
-                    b.Property<DateTime>("CreatedAt");
-
-                    b.Property<int>("JobId");
-
-                    b.Property<DateTime>("UpdatedAt");
-
-                    b.Property<int>("UserId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("JobId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("JobTalk");
-                });
-
             modelBuilder.Entity("craigslist.Models.User", b =>
                 {
                     b.Property<int>("Id")
@@ -141,19 +96,6 @@ namespace craigslist.Migrations
                     b.HasOne("craigslist.Models.Auto", "Auto")
                         .WithMany()
                         .HasForeignKey("AutoId");
-
-                    b.HasOne("craigslist.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("craigslist.Models.JobTalk", b =>
-                {
-                    b.HasOne("craigslist.Models.Job", "Job")
-                        .WithMany()
-                        .HasForeignKey("JobId")
-                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("craigslist.Models.User", "User")
                         .WithMany()

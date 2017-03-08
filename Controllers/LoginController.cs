@@ -49,8 +49,8 @@ namespace craigslist.Controllers
                 user.Last_Name = model.Last_Name;
                 user.Email = model.Email;
                 user.Password = Hasher.HashPassword(user, model.Password);
-                user.Created_At = DateTime.Now;
-                user.Updated_At = DateTime.Now;
+                user.CreatedAt = DateTime.Now;
+                user.UpdatedAt = DateTime.Now;
                 _context.User.Add(user);
                 _context.SaveChanges();
                 HttpContext.Session.SetInt32("Id", user.Id);

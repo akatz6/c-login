@@ -1,0 +1,33 @@
+@Html.Partial("TopBanner")
+
+<h3>Hello, Add to Discussion on @ViewBag.Auto.Make @ViewBag.Auto.Model @ViewBag.Auto.Part for $@ViewBag.Auto.Price</h3>
+
+@model craigslist.Models.AutoTalk
+<form asp-controller="Auto" asp-action="AddAutoTalk" method="post" role="form">
+    <span asp-validation-for="Comment"></span>
+    <label asp-for="Comment"></label>
+    <input asp-for="Comment"/>
+    <button type="submit">Add Comment about Auto or Part</button>
+</form>
+
+<table> 
+    <tr>
+        <th>Name</th>
+        <th>Comment</th>
+        <th>Action</th>
+    </tr>
+    @foreach(var comments in ViewBag.Conversations)
+    {
+        <tr>
+            <td>@comments.User.First_Name  said</td>
+            <td>@comments.Comment</td>
+            @if(comments.UserId == ViewBag.user)
+            {
+                <td><a asp-controller="Auto" asp-action="RemoveAutoConversation" asp-route-id="@comments.Id">Delete</a></td>
+            }else
+            {
+                <td>No Action</td>
+            }
+        </tr>
+    }
+</table>

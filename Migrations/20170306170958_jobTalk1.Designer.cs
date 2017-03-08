@@ -8,9 +8,10 @@ using craigslist.Models;
 namespace craigslist.Migrations
 {
     [DbContext(typeof(CraigsListDBContext))]
-    partial class CraigsListDBContextModelSnapshot : ModelSnapshot
+    [Migration("20170306170958_jobTalk1")]
+    partial class jobTalk1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rtm-21431");
@@ -150,7 +151,7 @@ namespace craigslist.Migrations
 
             modelBuilder.Entity("craigslist.Models.JobTalk", b =>
                 {
-                    b.HasOne("craigslist.Models.Job", "Job")
+                    b.HasOne("craigslist.Models.Auto", "Job")
                         .WithMany()
                         .HasForeignKey("JobId")
                         .OnDelete(DeleteBehavior.Cascade);
